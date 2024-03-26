@@ -10,6 +10,9 @@ class MoviesController < ApplicationController
     @all_ratings = Movie.all_ratings
     @ratings_to_show = params[:ratings] ? params[:ratings].keys : @all_ratings
     @movies = Movie.with_ratings(@ratings_to_show)
+
+    @sort_column = params[:sort_column]
+    @movies = Movie.with_ratings(@ratings_to_show).order(@sort_column)
   end
 
   def new

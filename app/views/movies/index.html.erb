@@ -14,12 +14,17 @@
   <% end %>
   <%= submit_tag 'Refresh', id: 'ratings_submit', class: 'btn btn-primary' %>
 <% end %>
+
 <table class="table table-striped col-md-12" id="movies">
   <thead>
     <tr>
-      <th>Movie Title</th>
+      <th class="<%= @sort_column == 'title' ? 'hilite bg-warning' : '' %>">
+          <a id="title_header" href="<%= movies_path(sort_column: 'title', ratings: @ratings_to_show.map{|rating| [rating, '1']}.to_h)%>">Movie Title</a>
+      </th>
       <th>Rating</th>
-      <th>Release Date</th>
+      <th class="<%= @sort_column == 'release_date' ? 'hilite bg-warning' : '' %>">
+        <a id="release_date_header" href="<%= movies_path(sort_column: 'release_date', ratings: @ratings_to_show.map{|rating| [rating, '1']}.to_h) %>">Release Date</a>
+      </th>
       <th>More Info</th>
     </tr>
   </thead>
