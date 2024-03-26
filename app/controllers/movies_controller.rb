@@ -16,6 +16,7 @@ class MoviesController < ApplicationController
     elsif params[:ratings].present?
       @ratings_to_show = params[:ratings].keys
       session[:ratings] = @ratings_to_show
+      redirect = true
     else
       @ratings_to_show = session[:ratings]
     end
