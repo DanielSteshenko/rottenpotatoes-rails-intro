@@ -19,11 +19,11 @@
   <thead>
     <tr>
       <th class="<%= @sort_column == 'title' ? 'hilite bg-warning' : '' %>">
-          <a id="title_header" href="<%= movies_path(sort_column: 'title', ratings: @ratings_to_show.map{|rating| [rating, '1']}.to_h)%>">Movie Title</a>
+          <a id="title_header" href="<%= movies_path(sort_column: 'title', ratings: session[:ratings].map{|rating| [rating, '1']})%>">Movie Title</a>
       </th>
       <th>Rating</th>
       <th class="<%= @sort_column == 'release_date' ? 'hilite bg-warning' : '' %>">
-        <a id="release_date_header" href="<%= movies_path(sort_column: 'release_date', ratings: @ratings_to_show.map{|rating| [rating, '1']}.to_h) %>">Release Date</a>
+        <a id="release_date_header" href="<%= movies_path(sort_column: 'release_date', ratings: session[:ratings].map{|rating| [rating, '1']}) %>">Release Date</a>
       </th>
       <th>More Info</th>
     </tr>
