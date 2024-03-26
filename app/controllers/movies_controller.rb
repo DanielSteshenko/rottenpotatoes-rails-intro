@@ -12,8 +12,10 @@ class MoviesController < ApplicationController
 
     if params[:ratings].blank? && session[:ratings].blank?
       @ratings_to_show = @all_ratings
+    elsif params[:ratings] && params[:ratings].keys
+      @ratings_to_show = params[:ratings].keys
     else
-      @ratings_to_show = params[:ratings] ? params[:ratings].keys : @all_ratings || session[:ratings]
+      @ratings_to_show = session[:ratings]
     end
     session[:ratings] = @ratings_to_show
 
